@@ -1,0 +1,54 @@
+﻿@model CustomIdentity.Models.Job
+@{
+    ViewData["Title"] = "View";
+}
+
+
+<h4>Create Job</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Note" class="control-label"></label>
+                <input asp-for="Note" class="form-control" />
+                <span asp-validation-for="Note" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobStatus" class="control-label"></label>
+                <select asp-for="JobStatus" asp-items="Html.GetEnumSelectList<JobStatus>()" class="form-control">
+                    <option>Select status ...</option>
+                </select>
+                <span asp-validation-for="JobStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateStart" class="control-label"></label>
+                <input asp-for="DateStart" class="form-control" />
+                <span asp-validation-for="DateStart" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeadLine" class="control-label"></label>
+                <input asp-for="DeadLine" class="form-control" />
+                <span asp-validation-for="DeadLine" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CurrentApplicationUserId" class="control-label"></label>
+                <select asp-for="CurrentApplicationUserId" class ="form-control" asp-items="ViewBag.SelectOptions"></select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Create Job</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
