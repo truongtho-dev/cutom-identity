@@ -13,19 +13,23 @@ namespace CustomIdentity.Models
 
 		[Display(Name = "Job name")]
 		public string Name { get; set; }
+
 		public string Note { get; set; }
+
 		[Display(Name = "Job status")]
 		public JobStatus JobStatus { get; set; }
+
 		[Display(Name = "Date start")]
 		public DateTime DateStart { get; set; }
 
 		[Display(Name = "Date end")]
 		public DateTime DeadLine { get; set; }
 
-		[Display(Name = "Assign to")]
-		public string CurrentApplicationUserId {get; set;}
-		public ApplicationUser ApplicationUser { get; set; }
+		[Display(Name = "Assign To")]
+		public string AssignTo { get; set; }
 
+		public string UserId { get; set; }
+		public ApplicationUser ApplicationUser { get; set; }
 
 	}
 

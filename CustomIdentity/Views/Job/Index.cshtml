@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<CustomIdentity.Models.Job>
 
 @{
-    ViewData["Title"] = "Job";
+    ViewData["Title"] = "Jobs";
 }
 
-<h1>Job view</h1>
+<h1>All Jobs</h1>
 
 <p>
-    <a asp-action="Create">Create New Job</a>
+    <a asp-action="Create" class="btn btn-primary">Create New Job</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
+        <tr class="bg-warning">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -28,7 +28,7 @@
                 @Html.DisplayNameFor(model => model.DeadLine)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ApplicationUser)
+                @Html.DisplayNameFor(model => model.AssignTo)
             </th>
             <th></th>
         </tr>
@@ -52,13 +52,13 @@
                 @Html.DisplayFor(modelItem => item.DeadLine)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ApplicationUser.FirstName)
+                @Html.DisplayFor(modelItem => item.AssignTo)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
+			<td>
+				<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+				<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+				<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+			</td>
         </tr>
 }
     </tbody>
