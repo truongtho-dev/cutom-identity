@@ -50,9 +50,9 @@ namespace CustomIdentity.Data
 			});
 
 			builder.Entity<Job>()
-				.HasOne<ApplicationUser>(j => j.ApplicationUser)
+				.HasOne(j => j.ApplicationUser)
 				.WithMany(u => u.Jobs)
-				.HasForeignKey(j => j.CurrentApplicationUserId);
+				.HasForeignKey(j => j.UserId);
 		}
 	}
 }
