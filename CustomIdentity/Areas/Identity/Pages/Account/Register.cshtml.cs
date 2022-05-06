@@ -87,7 +87,7 @@ namespace CustomIdentity.Areas.Identity.Pages.Account
 
                 var user = new ApplicationUser 
                 { 
-                    UserName = Input.Email, 
+                    UserName = $"{Input.FirstName}{Input.LastName}", 
                     Email = Input.Email, 
                     FirstName = Input.FirstName, 
                     LastName = Input.LastName 

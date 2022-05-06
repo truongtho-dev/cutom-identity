@@ -1,65 +1,77 @@
-﻿@model IEnumerable<CustomIdentity.Models.Job>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@model IEnumerable<CustomIdentity.Models.Job>
 
 @{
-    ViewData["Title"] = "Jobs";
+	ViewData["Title"] = "Jobs";
 }
 
-<h1>All Jobs</h1>
+<h1>Danh sách công việc</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New Job</a>
+	<a asp-action="Create" class="btn btn-primary">Tạo công việc mới</a>
+	@if (SignInManager.IsSignedIn(User))
+	{
+		if (User.IsInRole("Admin"))
+		{
+			<a asp-controller="RoleManager" class="btn btn-primary m-1">Quản lý phân quyền hệ thống</a>
+		}
+	}
 </p>
 <table class="table">
-    <thead>
-        <tr class="bg-warning">
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Note)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JobStatus)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DateStart)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DeadLine)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AssignTo)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Note)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JobStatus)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateStart)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DeadLine)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AssignTo)
-            </td>
-			<td>
-				<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
-				<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
-				<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
-			</td>
-        </tr>
-}
-    </tbody>
+	<thead>
+		<tr class="bg-warning">
+			<th>
+				Tên công việc
+			</th>
+			<th>
+				Ghi chú
+			</th>
+			<th>
+				Tình trạng
+			</th>
+			<th>
+				Ngày bắt đầu
+			</th>
+			<th>
+				Ngày hoàn thành
+			</th>
+			<th>
+				Người thực hiện
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model)
+		{
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Name)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.Note)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.JobStatus)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DateStart)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.DeadLine)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.AssignTo)
+				</td>
+				<td>
+					<a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Xem</a>
+					<a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Sửa</a>
+					<a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Xóa</a>
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>

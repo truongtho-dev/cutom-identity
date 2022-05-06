@@ -1,0 +1,31 @@
+﻿@model Microsoft.AspNetCore.Identity.IdentityRole;
+	
+
+	@{
+		ViewData["Title"] = "Role manager";
+		Layout = "~/Views/Shared/_Layout.cshtml";
+	}
+	<h4>Bạn có chắc muốn xóa vai trò này?</h4>
+
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Tên vai trò</th>
+				<th>Hành động</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>@Model.Id</td>
+				<td>@Model.Name</td>
+				<td>
+					<form asp-action="Delete">
+						<input type="hidden" asp-for="@Model.Id" />
+						<input type="submit" value="Xóa" class="btn btn-danger" />
+					</form>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
