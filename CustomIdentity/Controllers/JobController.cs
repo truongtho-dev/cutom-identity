@@ -9,9 +9,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Authorization;
 
 namespace CustomIdentity.Controllers
 {
+	[Authorize]
 	public class JobController : Controller
 	{
 		private readonly ApplicationDbContext _context;
@@ -42,8 +44,8 @@ namespace CustomIdentity.Controllers
 			var users = await _userManager.Users.ToListAsync();
 			var selectOptions = users.Select(user => new SelectListItem()
 			{
-				Value = $"{user.UserName}",
-				Text = $"{user.UserName}"
+				Value = $"{user.FirstName} {user.LastName}",
+				Text = $"{user.FirstName} {user.LastName}"
 			}).ToList();
 
 			return selectOptions;

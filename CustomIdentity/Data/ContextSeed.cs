@@ -43,6 +43,7 @@ namespace CustomIdentity.Data
 	public enum Roles
 	{
 		Admin,
-		Member
+		Member,
+		Manager
 	}
 }
