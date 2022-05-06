@@ -75,6 +75,7 @@ namespace CustomIdentity.Controllers
             }
             return View(model);
         }
+
         [HttpPost]
         public async Task<IActionResult> Manage(List<ManageUserRolesViewModel> model, string userId)
         {

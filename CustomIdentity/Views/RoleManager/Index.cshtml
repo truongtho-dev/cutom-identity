@@ -4,12 +4,12 @@
 	ViewData["Title"] = "Role manager";
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h1>Role Manager</h1>
+<h1>Quản lý phân quyền</h1>
 <form method="post" asp-action="AddRole" asp-controller="RoleManager">
 	<div class="input-group">
 		<input name="roleName" class="form-control w-25">
 		<span class="input-group-btn">
-			<button class="btn btn-info">Add New Role</button>
+			<button class="btn btn-info">Thêm vai trò mới</button>
 		</span>
 	</div>
 </form>
@@ -17,17 +17,26 @@
 	<thead>
 		<tr>
 			<th>Id</th>
-			<th>Role</th>
+			<th>Tên vai trò</th>
+			<th>Hành động</th>
 		</tr>
 	</thead>
 	<tbody>
 		@foreach (var role in Model)
 		{
-			<tr>
-				<td>@role.Id</td>
-				<td>@role.Name</td>
-			</tr>
-		}
+		<tr>
+			<td>@role.Id</td>
+			<td>@role.Name</td>
+			<td>
+				@if (role.Name != "Admin")
+				{
+					<a asp-action="Delete" asp-route-id="@role.Id" class="btn btn-danger">Xóa</a>
+					@*<a asp-action="Edit" asp-route-id="@role.Id" class="btn btn-info">Sửa</a>*@
+				}
+			</td>
+			
+		</tr>
+					}
 	</tbody>
 </table>
 

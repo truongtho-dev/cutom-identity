@@ -95,6 +95,7 @@ namespace CustomIdentity.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    returnUrl = "~/job";
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

@@ -6,41 +6,41 @@
 
 
 <div>
-    <h4>Job Details</h4>
+    <h4>Chi tiết công việc</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
+           Tên công việc
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Note)
+            Ghi chú
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Note)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.JobStatus)
+            Tình trạng
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.JobStatus)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateStart)
+           Ngày bắt đầu
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DateStart)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DeadLine)
+            Ngày kết thúc
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.DeadLine)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AssignTo)
+            Người thực hiện
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AssignTo)
@@ -48,6 +48,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Sửa</a> |
+    <a asp-action="Index">Về danh sách</a>
 </div>
