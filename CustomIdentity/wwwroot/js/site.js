@@ -1,4 +1,26 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿////$("#create-job").rules("add", {
+////    required: true,
+////    minlength: 3,
+////    messages: {
+////        required: "Required input",
+////        minlength: jQuery.validator.format("Please, at least {0} characters are necessary")
+////    }
+////});
 
-// Write your JavaScript code.
+//jQuery.validator.setDefaults({
+//    debug: true,
+//    success: "valid"
+//});
+
+//$("#create-job").validate({
+//    rules: {
+//        Name: {
+//            required: true,
+//            minlength: 3,
+//            messages: {
+//                required: "Required input",
+//                minlength: jQuery.validator.format("Please, at least {0} characters are necessary")
+//			}
+//        }
+//    }
+//});

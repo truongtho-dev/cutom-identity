@@ -8,11 +8,11 @@
 <hr />
 <div class="row">
 	<div class="col-md-4">
-		<form asp-action="Create">
+		<form asp-action="Create" id="create-job">
 			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 			<div class="form-group">
 				<label asp-for="Name" class="control-label"> Tên công việc</label>
-				<input asp-for="Name" class="form-control" />
+				<input asp-for="Name" data-val-length-min ="5" data-val-required="Tên công việc là bắt buộc" data-val-length="Vui lòng nhập tối thiểu 5 ký tự" class="form-control" />
 				<span asp-validation-for="Name" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -27,12 +27,12 @@
 			</div>
 			<div class="form-group">
 				<label asp-for="DateStart" class="control-label">Ngày bắt đầu</label>
-				<input asp-for="DateStart" class="form-control" />
+				<input asp-for="DateStart" data-val-required="Ngày bắt đầu là bắt buộc" class="form-control" />
 				<span asp-validation-for="DateStart" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="DeadLine" class="control-label">Ngày hoàn thành</label>
-				<input asp-for="DeadLine" class="form-control" />
+				<input asp-for="DeadLine" data-val-required="Ngày hoàn thành là bắt buộc" class="form-control" />
 				<span asp-validation-for="DeadLine" class="text-danger"></span>
 			</div>
 
