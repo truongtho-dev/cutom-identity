@@ -11,21 +11,22 @@ namespace CustomIdentity.Models
 		[Key]
 		public Guid Id { get; set; }
 
-		[Display(Name = "Job name")]
+		[Required]
+		[Display(Name = "Tên công việc")]
 		public string Name { get; set; }
 
 		public string Note { get; set; }
 
-		[Display(Name = "Job status")]
+		[Display(Name = "Trạng thái")]
 		public JobStatus JobStatus { get; set; }
 
-		[Display(Name = "Date start")]
+		[Display(Name = "Ngày bắt đầu")]
 		public DateTime DateStart { get; set; }
 
-		[Display(Name = "Date end")]
+		[Display(Name = "Ngày hoàn thành")]
 		public DateTime DeadLine { get; set; }
 
-		[Display(Name = "Assign To")]
+		[Display(Name = "Người thực hiện")]
 		public string AssignTo { get; set; }
 
 		public string UserId { get; set; }
